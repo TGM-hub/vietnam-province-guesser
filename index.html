@@ -125,13 +125,14 @@ legend{font-size:13px;font-weight:600;margin-bottom:7px}
 .tbl .nw{color:var(--muted)}
 .tbl .km{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
 .bar{height:5px;background:var(--wrong);border-radius:2px;display:block}
-.tgm-nav{display:inline-flex;gap:4px;align-items:center;margin-right:6px;flex:none}.tgm-nav a{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;border:1px solid currentColor;opacity:.5;color:inherit;text-decoration:none;font-size:14px;line-height:1}.tgm-nav a:hover,.tgm-nav a:focus-visible{opacity:1}
+.tgm-nav{display:inline-flex;gap:4px;align-items:center;margin-right:6px;flex:none}.tgm-nav>a{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;border:1px solid currentColor;opacity:.5;color:inherit;text-decoration:none;font-size:14px;line-height:1}.tgm-nav>a:hover,.tgm-nav>a:focus-visible{opacity:1}
+.tgm-maps{position:relative;display:inline-block}.tgm-maps>summary{list-style:none;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;border:1px solid currentColor;opacity:.5;cursor:pointer;font-size:14px;line-height:1}.tgm-maps>summary::-webkit-details-marker{display:none}.tgm-maps[open]>summary,.tgm-maps>summary:hover{opacity:1}.tgm-pop{position:absolute;top:34px;left:0;z-index:9999;width:min(360px,calc(100vw - 24px));background:#1b2229;color:#e8edf2;border:1px solid #3a4652;border-radius:10px;padding:10px 12px;box-shadow:0 8px 24px #0006;font:13px/1.35 system-ui,sans-serif;text-align:left}.tgm-pop b{display:block;font-size:13px;margin-bottom:6px}.tgm-pop a{display:inline;width:auto;height:auto;border:0;opacity:1;color:#e8edf2;text-decoration:none}.tgm-pop a:hover{color:#f2c94c}.tgm-pop li{display:flex;gap:8px;align-items:baseline;margin:4px 0}.tgm-pop ul{list-style:none;margin:0;padding:0}.tgm-pop .lv{flex:none;width:16px;text-align:center;font-size:11px;border:1px solid #4b5866;border-radius:3px;color:#9fb0bf}.tgm-pop .ml{margin-left:auto;flex:none;color:#9fb0bf;font-size:12px}
 </style>
 </head>
 <body>
 <div id="app">
   <div id="rail">
-<span class="tgm-nav"><a href="https://tgm-hub.github.io/Atlas/" title="Atlas">⌂</a><a href="https://tgm-hub.github.io/Atlas/daily.html" target="gg-daily" title="Révision du jour">⏱</a></span>
+<span class="tgm-nav"><a href="https://tgm-hub.github.io/Atlas/" title="Atlas">⌂</a><a href="https://tgm-hub.github.io/Atlas/daily.html" target="gg-daily" title="Révision du jour">⏱</a><details class="tgm-maps"><summary title="Maps LearnableMeta à jouer sur GeoGuessr">🎯</summary><div class="tgm-pop"><b>Maps LearnableMeta (GeoGuessr)</b><ul><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">A Learnable Meta Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">A Learnable Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">A Learnable Meta Vietnam Poles ↗</a><a class="ml" href="https://learnablemeta.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">A Learnable Vietnam PlaceName Prefixes ↗</a><a class="ml" href="https://learnablemeta.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">metas</a></li></ul></div></details></span>
     <div class="stat"><b id="s-acc">—</b><span>acc</span></div>
     <div class="stat"><b id="s-streak">0</b><span>série</span></div>
     <div class="stat"><b id="s-n">0</b><span>vus</span></div>
@@ -694,10 +695,15 @@ function stWireMap(){
 }
 function stWireSearch(){
   const q = $("#st-q"), box = $("#st-hits"); let hits = [], on = 0;
-  const idx = KEYS.map(k => ({k, n: fold(nameOf(k)), a: ALIAS_Q[k] || "", nw: fold(newOf(k))}))
-    .concat(REG_ORDER.map(r => ({r, n: fold(r), a: fold(REG_SHORT[r]), nw: ""})));
+  /* initials: "hcm" Hồ Chí Minh, "brvt" Bà Rịa - Vũng Tàu, "tth" Thừa Thiên Huế, "tphcm" too */
+  const ini = t => t.split(/[\s\-–.]+/).filter(Boolean).map(w => w[0]).join("");
+  const OLD_INI = {hue: "tth"};   // Thừa Thiên Huế, renamed Huế
+  const idx = KEYS.map(k => ({k, n: fold(nameOf(k)), i: ini(fold(nameOf(k))), oi: OLD_INI[k] || "", a: ALIAS_Q[k] || "", nw: fold(newOf(k))}))
+    .concat(REG_ORDER.map(r => ({r, n: fold(r), i: ini(fold(REG_SHORT[r])), a: fold(REG_SHORT[r]), nw: ""})));
   const score = (x, f) => { const m = t => t.split(" ").some(w => w.startsWith(f)) || t.includes(f);
-    return x.n.startsWith(f) ? 0 : m(x.n) ? 1 : m(x.a) ? 2 : (x.k && m(x.nw)) ? 3 : 9; };
+    const g = f.replace(/^tp\.?\s*/, "").replace(/[\s\-.]/g, "");
+    if(g.length >= 2 && (x.i === g || x.oi === g)) return 0;
+    return x.n.startsWith(f) ? 0 : m(x.n) ? 1 : (g.length >= 2 && x.i.startsWith(g)) ? 1.5 : m(x.a) ? 2 : (x.k && m(x.nw)) ? 3 : 9; };
   const render = () => { box.style.display = hits.length ? "block" : "none";
     box.innerHTML = hits.map((h,i) => `<button class="${i===on?"on":""}" data-i="${i}">${esc(h.k ? nameOf(h.k) : h.r)}<small>${h.k ? (h.s === 3 ? "→ "+esc(newOf(h.k))+" en 2025 · " : "")+esc(REG_SHORT[regOf(h.k)]) : "région · "+inReg(h.r).length}</small></button>`).join(""); };
   const go = h => { if(!h) return; q.value = ""; hits = []; render(); q.blur(); h.k ? stFocus(regOf(h.k), h.k) : stFocus(h.r, null); };
@@ -718,6 +724,17 @@ document.addEventListener("keydown", e => {
   stFocus(regOf(ST.k), list[(i + (e.key === "ArrowRight" ? 1 : -1) + list.length) % list.length]);
 });
 $("#btn-study").onclick = () => { $("#ov-study").classList.add("open"); stBuild(); requestAnimationFrame(() => stFocus(ST.reg, ST.k)); };
+/* direct link: #vn (from the Atlas), #study or #carte opens the study map; #<province key> (e.g. #ha_noi) focuses it */
+function fromHash(){
+  const h = decodeURIComponent(location.hash.slice(1)).trim().toLowerCase();
+  if(!h) return;
+  if(h === "vn" || h === "study" || h === "carte" || h === "map" || PROV[h]){
+    closeAll(); $("#ov-study").classList.add("open"); stBuild();
+    requestAnimationFrame(() => PROV[h] ? stFocus(regOf(h), h) : stFocus(ST.reg, ST.k));
+  }
+}
+addEventListener("hashchange", fromHash);
+setTimeout(fromHash);
 
 
 function paintStats(){
