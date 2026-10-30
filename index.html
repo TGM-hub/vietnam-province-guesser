@@ -38,6 +38,8 @@ body{background:var(--ink);color:var(--text);font-family:'IBM Plex Sans',system-
 #msg{flex:1;font-size:13px;color:var(--muted)}
 #msg.good{color:var(--right);font-weight:500}
 #msg.bad{color:var(--wrong);font-weight:500}
+#msg.nudge{animation:nudge .5s;color:var(--ink);font-weight:500}
+@keyframes nudge{0%,100%{transform:none}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 #msg b{color:var(--text)}
 #btn-ok,#btn-next{display:none;border:none;font:inherit;font-size:14px;font-weight:600;padding:9px 18px;
  border-radius:var(--r);cursor:pointer}
@@ -123,11 +125,13 @@ legend{font-size:13px;font-weight:600;margin-bottom:7px}
 .tbl .nw{color:var(--muted)}
 .tbl .km{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
 .bar{height:5px;background:var(--wrong);border-radius:2px;display:block}
+.tgm-nav{display:inline-flex;gap:4px;align-items:center;margin-right:6px;flex:none}.tgm-nav a{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;border:1px solid currentColor;opacity:.5;color:inherit;text-decoration:none;font-size:14px;line-height:1}.tgm-nav a:hover,.tgm-nav a:focus-visible{opacity:1}
 </style>
 </head>
 <body>
 <div id="app">
   <div id="rail">
+<span class="tgm-nav"><a href="https://tgm-hub.github.io/Atlas/" title="Atlas">⌂</a><a href="https://tgm-hub.github.io/Atlas/daily.html" target="gg-daily" title="Révision du jour">⏱</a></span>
     <div class="stat"><b id="s-acc">—</b><span>acc</span></div>
     <div class="stat"><b id="s-streak">0</b><span>série</span></div>
     <div class="stat"><b id="s-n">0</b><span>vus</span></div>
@@ -423,7 +427,7 @@ function wire(){
     const m = toMap(e.clientX, e.clientY);
     if(round.phase === 1){
       const k = provAt(m.lat, m.lon);
-      if(!k){ $("#msg").textContent = "Clique sur le pays."; return; }
+      if(!k){ const m = $("#msg"); m.textContent = "Clique à l'intérieur du pays."; m.classList.remove("nudge"); void m.offsetWidth; m.classList.add("nudge"); return; }
       sel = regOf(k);
       /* naming the selection let you click around until it matched the
          question, which is the whole thing the round is testing */
