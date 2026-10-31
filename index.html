@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -132,70 +132,70 @@ legend{font-size:13px;font-weight:600;margin-bottom:7px}
 <body>
 <div id="app">
   <div id="rail">
-<span class="tgm-nav"><a href="https://tgm-hub.github.io/Atlas/" title="Atlas">⌂</a><a href="https://tgm-hub.github.io/Atlas/daily.html" target="gg-daily" title="Révision du jour">⏱</a><details class="tgm-maps"><summary title="Maps LearnableMeta à jouer sur GeoGuessr">🎯</summary><div class="tgm-pop"><b>Maps LearnableMeta (GeoGuessr)</b><ul><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">A Learnable Meta Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">A Learnable Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">A Learnable Meta Vietnam Poles ↗</a><a class="ml" href="https://learnablemeta.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermédiaire">I</span><a href="https://www.geoguessr.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">A Learnable Vietnam PlaceName Prefixes ↗</a><a class="ml" href="https://learnablemeta.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">metas</a></li></ul></div></details></span>
+<span class="tgm-nav"><a href="https://tgm-hub.github.io/Atlas/" title="Atlas">⌂</a><a href="https://tgm-hub.github.io/Atlas/daily.html" target="gg-daily" title="Daily review">⏱</a><details class="tgm-maps"><summary title="LearnableMeta maps to play on GeoGuessr">🎯</summary><div class="tgm-pop"><b>LearnableMeta maps (GeoGuessr)</b><ul><li><span class="lv" title="intermediate">I</span><a href="https://www.geoguessr.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">A Learnable Meta Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b7ff05f53f81ad9c215845" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermediate">I</span><a href="https://www.geoguessr.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">A Learnable Vietnam ↗</a><a class="ml" href="https://learnablemeta.com/maps/68b773dfe40f32a09b5d404f" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermediate">I</span><a href="https://www.geoguessr.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">A Learnable Meta Vietnam Poles ↗</a><a class="ml" href="https://learnablemeta.com/maps/686139a9c219e4f58135868c" target="_blank" rel="noopener">metas</a></li><li><span class="lv" title="intermediate">I</span><a href="https://www.geoguessr.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">A Learnable Vietnam PlaceName Prefixes ↗</a><a class="ml" href="https://learnablemeta.com/maps/69b7c5ace04f10a2296ab56f" target="_blank" rel="noopener">metas</a></li></ul></div></details></span>
     <div class="stat"><b id="s-acc">—</b><span>acc</span></div>
-    <div class="stat"><b id="s-streak">0</b><span>série</span></div>
-    <div class="stat"><b id="s-n">0</b><span>vus</span></div>
+    <div class="stat"><b id="s-streak">0</b><span>streak</span></div>
+    <div class="stat"><b id="s-n">0</b><span>seen</span></div>
     <div class="spacer"></div>
-    <button class="railbtn" id="btn-study">Carte</button>
+    <button class="railbtn" id="btn-study">Map</button>
     <button class="railbtn" id="btn-stats">Stats</button>
-    <button class="railbtn" id="btn-settings">Réglages</button>
+    <button class="railbtn" id="btn-settings">Settings</button>
   </div>
-  <div id="prompt"><div id="name">—</div><div id="ask">Où est-ce ?</div></div>
+  <div id="prompt"><div id="name">—</div><div id="ask">Where is it?</div></div>
   <div id="maparea">
     <svg id="mapsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div id="mapbar"><span id="msg">Clique sur la carte.</span>
-      <button id="btn-ok">Valider</button><button id="btn-next">Suivant</button></div>
+    <div id="mapbar"><span id="msg">Click on the map.</span>
+      <button id="btn-ok">Confirm</button><button id="btn-next">Next</button></div>
   </div>
 </div>
 
 <div class="overlay" id="ov-study">
-  <div class="ov-head"><h2>Les 63 provinces</h2>
-    <div class="st-search"><input id="st-q" type="search" placeholder="Chercher une province ou une région" autocomplete="off" spellcheck="false"><div id="st-hits"></div></div>
+  <div class="ov-head"><h2>The 63 provinces</h2>
+    <div class="st-search"><input id="st-q" type="search" placeholder="Search a province or a region" autocomplete="off" spellcheck="false"><div id="st-hits"></div></div>
     <div class="spacer"></div>
-    <button class="railbtn" data-close>Fermer</button></div>
+    <button class="railbtn" data-close>Close</button></div>
   <div class="regkey" id="regkey"></div>
   <div class="st-main">
     <div class="st-mapwrap">
       <svg id="studysvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg>
-      <div class="st-zoom"><button id="st-zin" title="Zoom +">+</button><button id="st-zout" title="Zoom −">−</button><button id="st-zfit" title="Recentrer">⟲</button></div>
+      <div class="st-zoom"><button id="st-zin" title="Zoom +">+</button><button id="st-zout" title="Zoom −">−</button><button id="st-zfit" title="Recenter">⟲</button></div>
     </div>
     <aside id="st-side"></aside>
   </div>
 </div>
 
 <div class="overlay" id="ov-stats">
-  <div class="ov-head"><h2>Où tu te trompes</h2><div class="spacer"></div>
-    <button class="railbtn" data-close>Fermer</button></div>
+  <div class="ov-head"><h2>Where you go wrong</h2><div class="spacer"></div>
+    <button class="railbtn" data-close>Close</button></div>
   <div class="ov-body"><div id="statsbody"></div></div>
 </div>
 
 <div class="overlay" id="ov-settings">
-  <div class="ov-head"><h2>Réglages</h2><div class="spacer"></div>
-    <button class="railbtn" data-close>Fermer</button></div>
+  <div class="ov-head"><h2>Settings</h2><div class="spacer"></div>
+    <button class="railbtn" data-close>Close</button></div>
   <div class="ov-body">
-    <fieldset><legend>Niveau</legend>
+    <fieldset><legend>Level</legend>
       <div class="chips" id="lvl-chips">
-        <button class="chip" data-lvl="macro">Région seulement</button>
-        <button class="chip" data-lvl="two">Région puis province</button>
-        <button class="chip" data-lvl="exact">Province directement</button>
+        <button class="chip" data-lvl="macro">Region only</button>
+        <button class="chip" data-lvl="two">Region then province</button>
+        <button class="chip" data-lvl="exact">Province directly</button>
       </div>
       <p style="margin-top:7px" id="lvl-note"></p>
     </fieldset>
-    <fieldset><legend>Régions travaillées</legend>
+    <fieldset><legend>Regions to practise</legend>
       <div class="chips" id="reg-chips"></div>
-      <p style="margin-top:7px">Aucune sélection = toutes.</p>
+      <p style="margin-top:7px">No selection = all of them.</p>
     </fieldset>
-    <fieldset><legend>Enchaînement</legend>
+    <fieldset><legend>Next round</legend>
       <div class="chips" id="adv-chips">
-        <button class="chip" data-adv="auto">Automatique</button>
-        <button class="chip" data-adv="manual">Attendre</button>
+        <button class="chip" data-adv="auto">Automatic</button>
+        <button class="chip" data-adv="manual">Wait</button>
       </div>
     </fieldset>
-    <fieldset><legend>Données</legend>
+    <fieldset><legend>Data</legend>
       <div class="chips">
-        <button class="chip" id="btn-export">Exporter JSON</button>
-        <button class="chip danger" id="btn-reset">Tout remettre à zéro</button>
+        <button class="chip" id="btn-export">Export JSON</button>
+        <button class="chip danger" id="btn-reset">Reset everything</button>
       </div>
     </fieldset>
   </div>
@@ -429,16 +429,16 @@ function wire(){
     const m = toMap(e.clientX, e.clientY);
     if(round.phase === 1){
       const k = provAt(m.lat, m.lon);
-      if(!k){ const m = $("#msg"); m.textContent = "Clique à l'intérieur du pays."; m.classList.remove("nudge"); void m.offsetWidth; m.classList.add("nudge"); return; }
+      if(!k){ const m = $("#msg"); m.textContent = "Click inside the country."; m.classList.remove("nudge"); void m.offsetWidth; m.classList.add("nudge"); return; }
       sel = regOf(k);
       /* naming the selection let you click around until it matched the
          question, which is the whole thing the round is testing */
-      $("#msg").textContent = "Valider pour confirmer.";
+      $("#msg").textContent = "Press Confirm.";
     } else {
       const list = inReg(round.reg);
       sel = provAt(m.lat, m.lon, list) || (provAt(m.lat, m.lon) ? null : nearestProv(m.lat, m.lon, list));
-      if(!sel){ $("#msg").textContent = "Reste dans la région."; return; }
-      $("#msg").textContent = "Valider pour confirmer.";
+      if(!sel){ $("#msg").textContent = "Stay inside the region."; return; }
+      $("#msg").textContent = "Press Confirm.";
     }
     draw();
     $("#btn-ok").classList.add("on");
@@ -470,9 +470,9 @@ function newRound(){
 function paintPhase(){
   const {reg, phase} = round;
   $("#ask").textContent = phase === 1
-    ? "Choisis la grande région" : `${REG_SHORT[reg]} — choisis la province`;
+    ? "Pick the region" : `${REG_SHORT[reg]} — pick the province`;
   $("#msg").textContent = phase === 1
-    ? "Clique sur une des huit régions." : "Clique sur une province.";
+    ? "Click one of the eight regions." : "Click a province.";
   $("#btn-ok").classList.remove("on");
   if(phase === 1){ MV.x = HOME.x; MV.y = HOME.y; MV.w = HOME.w; MV.h = HOME.h; clampView(); applyView(); }
   else frameOn(inReg(reg), 1.25);
@@ -498,22 +498,22 @@ function answer(){
   if(!round || locked || !sel) return;
   const t = round.key, r = round.reg;
   const after = newOf(t) === nameOf(t)
-    ? "inchangée après la fusion de 2025"
-    : `depuis 2025 : <b>${esc(newOf(t))}</b>`;
+    ? "unchanged by the 2025 merger"
+    : `since 2025: <b>${esc(newOf(t))}</b>`;
 
   if(round.phase === 1){
     const ok = sel === r;
     S.rtot[r] = (S.rtot[r]||0) + 1;
     if(ok) S.rhit[r] = (S.rhit[r]||0) + 1;
     if(!ok){
-      finish(false, `Tu as pris <b>${esc(REG_SHORT[sel])}</b>. ${esc(nameOf(t))} est en <b>${esc(r)}</b> — ${after}.`);
+      finish(false, `You picked <b>${esc(REG_SHORT[sel])}</b>. ${esc(nameOf(t))} is in <b>${esc(r)}</b> — ${after}.`);
       return;
     }
     if(S.lvl === "macro"){ finish(true, `<b>${esc(r)}</b> — ${after}`); return; }
     /* region cleared: stay in the same round and zoom in for the province */
     round.phase = 2; sel = null;
     paintPhase();
-    $("#msg").innerHTML = `<b>${esc(r)}</b> ✓ — maintenant la province.`;
+    $("#msg").innerHTML = `<b>${esc(r)}</b> ✓ — now the province.`;
     $("#msg").className = "good";
     return;
   }
@@ -522,7 +522,7 @@ function answer(){
   S.tot[t] = (S.tot[t]||0) + 1;
   if(ok) S.hit[t] = (S.hit[t]||0) + 1;
   finish(ok, ok ? `<b>${esc(nameOf(t))}</b> — ${after}`
-    : `Tu as pris <b>${esc(nameOf(sel))}</b>. ${esc(nameOf(t))} est ${after}.`);
+    : `You picked <b>${esc(nameOf(sel))}</b>. ${esc(nameOf(t))}: ${after}.`);
 }
 
 function paintRail(){
@@ -548,8 +548,8 @@ function paintSettings(){
   document.querySelectorAll("#adv-chips .chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.adv===S.adv));
   document.querySelectorAll("#reg-chips .chip").forEach(c=>c.setAttribute("aria-pressed", S.regs.includes(c.dataset.reg)));
   $("#lvl-note").textContent = S.lvl === "two"
-    ? "Deux temps : la région, puis la province si la région est juste. Une région manquée arrête la manche."
-    : S.lvl === "macro" ? "Seulement la grande région." : "La région est donnée, tu ne choisis que la province.";
+    ? "Two steps: the region, then the province if the region is right. A wrong region ends the round."
+    : S.lvl === "macro" ? "The region only." : "The region is given, you only pick the province.";
 }
 const rBox = $("#reg-chips");
 REG_ORDER.forEach(r=>{
@@ -563,7 +563,7 @@ REG_ORDER.forEach(r=>{
 document.querySelectorAll("#lvl-chips .chip").forEach(c=>c.onclick=()=>{ S.lvl=c.dataset.lvl; save(); paintSettings(); newRound(); });
 document.querySelectorAll("#adv-chips .chip").forEach(c=>c.onclick=()=>{ S.adv=c.dataset.adv; save(); paintSettings(); });
 $("#btn-settings").onclick = ()=>{ paintSettings(); $("#ov-settings").classList.add("open"); };
-$("#btn-reset").onclick = ()=>{ if(!confirm("Effacer toutes les stats ?")) return;
+$("#btn-reset").onclick = ()=>{ if(!confirm("Erase all stats?")) return;
   S = {...DEF}; save(); paintRail(); closeAll(); newRound(); };
 $("#btn-export").onclick = ()=>{
   const b = new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
@@ -589,7 +589,7 @@ function stBuild(){
   KEYS.forEach(k => s += `<path class="p" data-k="${k}" fill="${REG_COLOR[regOf(k)]}" d="${provPath(k)}"/>`);
   s += `<g id="st-labels"></g>`;
   stSvg().innerHTML = s;
-  $("#regkey").innerHTML = `<button class="all" data-r="">Tout le pays</button>` + REG_ORDER.map(r =>
+  $("#regkey").innerHTML = `<button class="all" data-r="">Whole country</button>` + REG_ORDER.map(r =>
     `<button data-r="${esc(r)}" style="background:${REG_COLOR[r]}">${esc(REG_SHORT[r])} · ${inReg(r).length}</button>`).join("");
   $("#regkey").onclick = e => { const b = e.target.closest("button"); if(b) stFocus(b.dataset.r || null, null); };
   stWireMap(); stWireSearch();
@@ -648,8 +648,8 @@ function stSide(){
     const k = ST.k, r = regOf(k), list = byName(inReg(r)), i = list.indexOf(k), a = accOf(k);
     h += `<div class="st-card"><h3>${esc(nameOf(k))}</h3>
       <button class="st-pill" data-goreg="${esc(r)}" style="background:${REG_COLOR[r]}">${esc(r)}</button>
-      <dl><dt>Depuis 2025</dt><dd>${newOf(k)===nameOf(k) ? "inchangée" : esc(newOf(k))}</dd>
-      <dt>Mes réponses</dt><dd>${a===null ? "pas encore jouée" : Math.round(100*a)+" % sur "+S.tot[k]}</dd></dl>
+      <dl><dt>Since 2025</dt><dd>${newOf(k)===nameOf(k) ? "unchanged" : esc(newOf(k))}</dd>
+      <dt>My answers</dt><dd>${a===null ? "not played yet" : Math.round(100*a)+" % over "+S.tot[k]}</dd></dl>
       <div class="st-nav"><button data-go="${list[(i-1+list.length)%list.length]}">‹ ${esc(nameOf(list[(i-1+list.length)%list.length]))}</button>
       <button data-go="${list[(i+1)%list.length]}">${esc(nameOf(list[(i+1)%list.length]))} ›</button></div></div>`;
   }
@@ -658,9 +658,9 @@ function stSide(){
       byName(inReg(ST.reg)).map(k => { const a = accOf(k);
         return `<button data-go="${k}" class="${k===ST.k?"on":""}"><i style="background:${REG_COLOR[ST.reg]}"></i>${esc(nameOf(k))}<small>${a===null?"":Math.round(100*a)+" %"}</small></button>`; }).join("") + `</div>`;
   } else {
-    h += `<div class="st-list"><h4>8 régions</h4>` + REG_ORDER.map(r => { const a = regAcc(r);
+    h += `<div class="st-list"><h4>8 regions</h4>` + REG_ORDER.map(r => { const a = regAcc(r);
       return `<button data-goreg="${esc(r)}"><i style="background:${REG_COLOR[r]}"></i>${esc(r)}<small>${inReg(r).length}${a===null?"":" · "+Math.round(100*a)+" %"}</small></button>`; }).join("") + `</div>`;
-    h += `<p class="st-note">Clique une région ou une province. Découpage d'avant juillet 2025, celui des enseignes en jeu ; la fiche donne l'unité depuis la fusion. Flèches ← → : province précédente / suivante.</p>`;
+    h += `<p class="st-note">Click a region or a province. Borders from before July 2025, the ones on in-game signs; the card gives the unit since the merger. Arrows ← →: previous / next province.</p>`;
   }
   const side = $("#st-side"); side.innerHTML = h;
   side.querySelectorAll("[data-go]").forEach(b => b.onclick = () => stFocus(regOf(b.dataset.go), b.dataset.go));
@@ -706,7 +706,7 @@ function stWireSearch(){
     if(g.length >= 2 && (x.i === g || x.oi === g)) return 0;
     return x.n.startsWith(f) ? 0 : m(x.n) ? 1 : (g.length >= 2 && x.i.startsWith(g)) ? 1.5 : m(x.a) ? 2 : (x.k && m(x.nw)) ? 3 : 9; };
   const render = () => { box.style.display = hits.length ? "block" : "none";
-    box.innerHTML = hits.map((h,i) => `<button class="${i===on?"on":""}" data-i="${i}">${esc(h.k ? nameOf(h.k) : h.r)}<small>${h.k ? (h.s === 3 ? "→ "+esc(newOf(h.k))+" en 2025 · " : "")+esc(REG_SHORT[regOf(h.k)]) : "région · "+inReg(h.r).length}</small></button>`).join(""); };
+    box.innerHTML = hits.map((h,i) => `<button class="${i===on?"on":""}" data-i="${i}">${esc(h.k ? nameOf(h.k) : h.r)}<small>${h.k ? (h.s === 3 ? "→ "+esc(newOf(h.k))+" in 2025 · " : "")+esc(REG_SHORT[regOf(h.k)]) : "region · "+inReg(h.r).length}</small></button>`).join(""); };
   const go = h => { if(!h) return; q.value = ""; hits = []; render(); q.blur(); h.k ? stFocus(regOf(h.k), h.k) : stFocus(h.r, null); };
   q.oninput = () => { const f = fold(q.value); on = 0;
     hits = f ? idx.map(x => ({...x, s: score(x, f)})).filter(x => x.s < 9)
@@ -741,14 +741,14 @@ setTimeout(fromHash);
 function paintStats(){
   const rr = REG_ORDER.filter(r=>S.rtot[r]).map(r=>({r, acc:regAcc(r), tot:S.rtot[r]}));
   const pp = KEYS.filter(k=>S.tot[k]).map(k=>({k, acc:accOf(k), tot:S.tot[k]})).sort((a,b)=>a.acc-b.acc);
-  if(!rr.length && !pp.length){ $("#statsbody").innerHTML = `<p>Rien joué pour l'instant.</p>`; return; }
+  if(!rr.length && !pp.length){ $("#statsbody").innerHTML = `<p>Nothing played yet.</p>`; return; }
   let h = "";
-  if(rr.length) h += `<h3 style="font-size:14px;margin-bottom:6px">Grandes régions</h3>
-    <table class="tbl"><tr><th>Région</th><th class="km">réussite</th><th class="km">essais</th></tr>` +
+  if(rr.length) h += `<h3 style="font-size:14px;margin-bottom:6px">Regions</h3>
+    <table class="tbl"><tr><th>Region</th><th class="km">accuracy</th><th class="km">tries</th></tr>` +
     rr.map(x=>`<tr><td class="nm">${esc(REG_SHORT[x.r])}</td>
       <td class="km">${Math.round(100*x.acc)}%</td><td class="km">${x.tot}</td></tr>`).join("") + `</table>`;
   if(pp.length) h += `<h3 style="font-size:14px;margin:16px 0 6px">Provinces</h3>
-    <table class="tbl"><tr><th>Province</th><th class="km">réussite</th><th class="km">essais</th></tr>` +
+    <table class="tbl"><tr><th>Province</th><th class="km">accuracy</th><th class="km">tries</th></tr>` +
     pp.map(x=>`<tr><td class="nm">${esc(nameOf(x.k))}
       <span class="bar" style="width:${Math.max(3, Math.round(100*(1-x.acc)))}%"></span></td>
       <td class="km">${Math.round(100*x.acc)}%</td><td class="km">${x.tot}</td></tr>`).join("") + `</table>`;
